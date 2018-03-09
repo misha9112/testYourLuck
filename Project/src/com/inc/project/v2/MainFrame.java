@@ -49,9 +49,9 @@ public class MainFrame extends JFrame {
 		MouseListener ml = new MouseAdapter() {
 			public void mouseReleased(MouseEvent e) {
 				String text = ((JButton) e.getComponent()).getText();
-				if (text.equals("시작하기")) {
+				if (text.equals("START")) {
 					cl.next(getContentPane());
-				} else if (text.equals("종료하기")) {
+				} else if (text.equals("EXIT")) {
 					System.exit(0);
 				} 
 			}
@@ -63,9 +63,9 @@ public class MainFrame extends JFrame {
 	public void initComponent() {
 		// 메인
 		mainPanel = new JPanel();
-		startBtn = new JButton("시작하기");
+		startBtn = new JButton("START");
 		startBtn.setPreferredSize(new Dimension(100, 50));
-		exitBtn = new JButton("종료하기");
+		exitBtn = new JButton("EXIT");
 		exitBtn.setPreferredSize(new Dimension(100, 50));
 		titleLabel = new JLabel("운빨좆망겜에 오신걸 환영합니다.");
 

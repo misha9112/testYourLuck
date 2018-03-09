@@ -9,7 +9,6 @@ public class TestYourLuck extends JFrame{
 	JButton yesBtn;
 	JButton noBtn;
 	int a;
-	int b;
 	public static void main(String[] args) {
 		
 	}

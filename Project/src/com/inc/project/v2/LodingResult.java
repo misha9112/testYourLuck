@@ -81,6 +81,6 @@ public class LodingResult extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		new LodingResult();
+		new LodingResult(); 
 	}
 }

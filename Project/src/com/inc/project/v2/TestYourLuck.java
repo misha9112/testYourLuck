@@ -8,6 +8,7 @@ public class TestYourLuck extends JFrame{
 	JTextArea questionArea;
 	JButton yesBtn;
 	JButton noBtn;
+	int a;
 	public static void main(String[] args) {
 		
 	}

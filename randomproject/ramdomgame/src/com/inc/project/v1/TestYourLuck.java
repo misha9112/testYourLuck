@@ -7,5 +7,8 @@ public class TestYourLuck extends JFrame{
 	
 	public static void main(String[] args) {
 		
+		int aaa;
+		int bbb;
+		
 	}
 }

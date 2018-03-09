@@ -1,40 +1,32 @@
 package com.inc.project.v2;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JTextArea;
+import java.util.Scanner;
 
-public class TestYourLuck extends JFrame{
-	JTextArea questionArea;
-	JButton yesBtn;
-	JButton noBtn;
-	
-	
-	public TestYourLuck() {
-		setTitle("Main Frame");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setBounds(300, 300, 500, 500);
-		setResizable(false);
-		
-		init();
-		
-		setVisible(true);
-	}
+public class TestYourLuck {
+	public static void main(String[] arg0) {
+		Scanner scanner = new Scanner(System.in);
+		int a;
+		int ran = (int) (Math.random() * 2 + 1);
+		int i = 10;
+		int dcnt = 0;
+		System.out.println("Game Start!");
+		while (i > 1) {
+			System.out.println("1. Yes\n2. No\n3. Exit");
+			a = scanner.nextInt();
+			System.out.println(ran);
 
-	public void init() {
-		initComponent();  
-		initEvent();
-	}
+			if (ran == a) {
+				System.out.println("You Die");
+				i = 10;
+				ran = (int) (Math.random() * 2 + 1);
+				dcnt++;
+			} else if (a == 3 || dcnt == 100) {
+				System.out.println("Death Count : " + dcnt);
+				return;
+			}
+			ran = (int) (Math.random() * 2 + 1);
+			i--;
+		}
 
-	private void initEvent() {
-		
-	}
-
-	private void initComponent() {
-		
-	}
-
-	public static void main(String[] args) {
-		new TestYourLuck();
 	}
 }

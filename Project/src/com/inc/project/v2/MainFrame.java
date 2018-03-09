@@ -53,7 +53,7 @@ public class MainFrame extends JFrame {
 					cl.next(getContentPane());
 				} else if (text.equals("EXIT")) {
 					System.exit(0);
-				} 
+				}
 			}
 		};
 		startBtn.addMouseListener(ml);

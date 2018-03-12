@@ -70,7 +70,7 @@ public class MainFrame extends JFrame {
 		yesBtn.addMouseListener(ml);
 		noBtn.addMouseListener(ml);
 		resetBtn.addMouseListener(ml);
-
+		//
 	}
 
 	public void initComponent() {

@@ -27,9 +27,13 @@ public class MainFrame extends JFrame {
 	JLabel titleLabel;
 	JLabel stage1Label;
 	JLabel lastStageLabel;
+	JLabel dcLabel;
+	JLabel dc2Label;
 
 	TestYourLuck test;
 	String str;
+
+	int dc = 0; 
 
 	public MainFrame() {
 		setTitle("Main Frame");
@@ -45,11 +49,6 @@ public class MainFrame extends JFrame {
 		setVisible(true);
 	}
 
-	public void init() {
-		initComponent();
-		initEvent();
-	}
-
 	private void initEvent() {
 		MouseListener ml = new MouseAdapter() {
 			public void mouseReleased(MouseEvent e) {
@@ -61,16 +60,21 @@ public class MainFrame extends JFrame {
 				} else if (text.equals("Yes")) {
 					str = test.choice(1);
 					if (str.equals("die")) {
+						dc++;
+						dc2Label.setText(String.valueOf(dc));
 						cl.show(getContentPane(), "mainPanel");
-					}else {
-//						cl.next(getContentPane());
+
+					} else {
+						// cl.next(getContentPane());
 					}
 				} else if (text.equals("No")) {
 					str = test.choice(2);
 					if (str.equals("die")) {
+						dc++;
+						dc2Label.setText(String.valueOf(dc));
 						cl.show(getContentPane(), "mainPanel");
-					}else {
-//						cl.next(getContentPane());
+					} else {
+						// cl.next(getContentPane());
 					}
 				} else if (text.equals("돌아가기")) {
 					cl.show(getContentPane(), "mainPanel");
@@ -83,11 +87,10 @@ public class MainFrame extends JFrame {
 		yesBtn.addMouseListener(ml);
 		noBtn.addMouseListener(ml);
 		resetBtn.addMouseListener(ml);
-		//
+
 	}
 
-	public void initComponent() {
-		// 메인
+	public void mainComponent() {
 		mainPanel = new JPanel();
 		startBtn = new JButton("START");
 		startBtn.setPreferredSize(new Dimension(100, 50));
@@ -99,20 +102,26 @@ public class MainFrame extends JFrame {
 		mainPanel.add(startBtn);
 		mainPanel.add(exitBtn);
 		add(mainPanel, "mainPanel");
+	}
 
-		// 스테이지
+	public void stageComponent() {
 		stagePanel = new JPanel();
 		yesBtn = new JButton("Yes");
 		yesBtn.setPreferredSize(new Dimension(100, 50));
 		noBtn = new JButton("No");
 		noBtn.setPreferredSize(new Dimension(100, 50));
+		dcLabel = new JLabel("DeathCount");
+		dc2Label = new JLabel(" " + dc);
 		stage1Label = new JLabel("스테이지1의 문구를 집어 넣을 것.");
+		stagePanel.add(dcLabel);
+		stagePanel.add(dc2Label);
 		stagePanel.add(stage1Label);
 		stagePanel.add(yesBtn);
 		stagePanel.add(noBtn);
 		add(stagePanel);
+	}
 
-		// 결과
+	public void lastComponent() {
 		lastPanel = new JPanel();
 		resetBtn = new JButton("돌아가기");
 		resetBtn.setPreferredSize(new Dimension(100, 50));
@@ -120,6 +129,17 @@ public class MainFrame extends JFrame {
 		lastPanel.add(lastStageLabel);
 		lastPanel.add(resetBtn);
 		add(lastPanel);
+	}
+
+	public void init() {
+		initComponent();
+		initEvent();
+	}
+
+	public void initComponent() {
+		mainComponent();
+		stageComponent();
+		lastComponent();
 	}
 
 	public static void main(String[] args) {

@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 public class MainFrame extends JFrame {
 	CardLayout cl;
-
+// 헐
 	JPanel mainPanel;
 	JPanel stagePanel;
 	JPanel lastPanel;

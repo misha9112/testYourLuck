@@ -28,6 +28,9 @@ public class MainFrame extends JFrame {
 	JLabel stage1Label;
 	JLabel lastStageLabel;
 
+	TestYourLuck test;
+	String str;
+
 	public MainFrame() {
 		setTitle("Main Frame");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -56,15 +59,25 @@ public class MainFrame extends JFrame {
 				} else if (text.equals("EXIT")) {
 					System.exit(0);
 				} else if (text.equals("Yes")) {
-					cl.next(getContentPane());
+					str = test.choice(1);
+					if (str.equals("die")) {
+						cl.show(getContentPane(), "mainPanel");
+					}else {
+//						cl.next(getContentPane());
+					}
 				} else if (text.equals("No")) {
-					System.exit(0);
+					str = test.choice(2);
+					if (str.equals("die")) {
+						cl.show(getContentPane(), "mainPanel");
+					}else {
+//						cl.next(getContentPane());
+					}
 				} else if (text.equals("돌아가기")) {
 					cl.show(getContentPane(), "mainPanel");
 				}
 			}
 		};
-		
+
 		startBtn.addMouseListener(ml);
 		exitBtn.addMouseListener(ml);
 		yesBtn.addMouseListener(ml);

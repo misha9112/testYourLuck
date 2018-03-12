@@ -49,9 +49,11 @@ public class LoadingResult extends JFrame {
 				str = ((JButton)e.getComponent()).getText();
 				if (str.equals("메인 화면으로")) {
 					live = true;
+					dispose();
 				}
 				if (str.equals("다음 스테이지로")) {
 					live = false;
+					dispose();
 				}
 			}
 		};

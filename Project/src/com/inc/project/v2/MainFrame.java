@@ -32,6 +32,7 @@ public class MainFrame extends JFrame {
 
 	TestYourLuck test;
 	String str;
+	LoadingResult result;
 
 	int dc = 0; 
 
@@ -53,13 +54,14 @@ public class MainFrame extends JFrame {
 		MouseListener ml = new MouseAdapter() {
 			public void mouseReleased(MouseEvent e) {
 				String text = ((JButton) e.getComponent()).getText();
+				result = new LoadingResult();
 				if (text.equals("START")) {
 					cl.next(getContentPane());
 				} else if (text.equals("EXIT")) {
 					System.exit(0);
 				} else if (text.equals("Yes")) {
-					str = test.choice(1);
-					if (str.equals("die")) {
+					result.run();
+					if (result.live == false) {
 						dc++;
 						dc2Label.setText(String.valueOf(dc));
 						cl.show(getContentPane(), "mainPanel");
@@ -68,11 +70,12 @@ public class MainFrame extends JFrame {
 						// cl.next(getContentPane());
 					}
 				} else if (text.equals("No")) {
-					str = test.choice(2);
-					if (str.equals("die")) {
+					result.run();
+					if (result.live == false) {
 						dc++;
 						dc2Label.setText(String.valueOf(dc));
 						cl.show(getContentPane(), "mainPanel");
+					
 					} else {
 						// cl.next(getContentPane());
 					}

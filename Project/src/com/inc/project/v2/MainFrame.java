@@ -25,6 +25,8 @@ public class MainFrame extends JFrame {
 	JButton resetBtn;
 
 	JLabel titleLabel;
+	JLabel stage1Label;
+	JLabel lastStageLabel;
 
 	public MainFrame() {
 		setTitle("Main Frame");
@@ -53,11 +55,22 @@ public class MainFrame extends JFrame {
 					cl.next(getContentPane());
 				} else if (text.equals("EXIT")) {
 					System.exit(0);
+				} else if (text.equals("Yes")) {
+					cl.next(getContentPane());
+				} else if (text.equals("No")) {
+					System.exit(0);
+				} else if (text.equals("돌아가기")) {
+					cl.show(getContentPane(), "mainPanel");
 				}
 			}
 		};
+		
 		startBtn.addMouseListener(ml);
 		exitBtn.addMouseListener(ml);
+		yesBtn.addMouseListener(ml);
+		noBtn.addMouseListener(ml);
+		resetBtn.addMouseListener(ml);
+
 	}
 
 	public void initComponent() {
@@ -72,7 +85,7 @@ public class MainFrame extends JFrame {
 		mainPanel.add(titleLabel);
 		mainPanel.add(startBtn);
 		mainPanel.add(exitBtn);
-		add(mainPanel);
+		add(mainPanel, "mainPanel");
 
 		// 스테이지
 		stagePanel = new JPanel();
@@ -80,6 +93,8 @@ public class MainFrame extends JFrame {
 		yesBtn.setPreferredSize(new Dimension(100, 50));
 		noBtn = new JButton("No");
 		noBtn.setPreferredSize(new Dimension(100, 50));
+		stage1Label = new JLabel("스테이지1의 문구를 집어 넣을 것.");
+		stagePanel.add(stage1Label);
 		stagePanel.add(yesBtn);
 		stagePanel.add(noBtn);
 		add(stagePanel);
@@ -88,9 +103,10 @@ public class MainFrame extends JFrame {
 		lastPanel = new JPanel();
 		resetBtn = new JButton("돌아가기");
 		resetBtn.setPreferredSize(new Dimension(100, 50));
+		lastStageLabel = new JLabel("스테이지10 통과 후 문구를 집어 넣을것.");
+		lastPanel.add(lastStageLabel);
 		lastPanel.add(resetBtn);
 		add(lastPanel);
-
 	}
 
 	public static void main(String[] args) {

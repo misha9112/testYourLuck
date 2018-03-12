@@ -1,5 +1,6 @@
 package com.inc.project.v2;
 
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
@@ -17,6 +18,10 @@ public class MainFrame extends JFrame {
 	JPanel mainPanel;
 	JPanel stagePanel;
 	JPanel lastPanel;
+
+	JPanel stageDcPanel;
+	JPanel stageTextPanel;
+	JPanel stageBtnPanel;
 
 	JButton startBtn;
 	JButton exitBtn;
@@ -37,7 +42,7 @@ public class MainFrame extends JFrame {
 	int dc = 0;
 
 	public MainFrame() {
-		setTitle("Main Frame");
+		setTitle("운빨랜덤게임");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setBounds(500, 200, 300, 300);
 		setResizable(false);
@@ -90,15 +95,14 @@ public class MainFrame extends JFrame {
 		yesBtn.addMouseListener(ml);
 		noBtn.addMouseListener(ml);
 		resetBtn.addMouseListener(ml);
-
 	}
 
 	public void mainComponent() {
 		mainPanel = new JPanel();
 		startBtn = new JButton("START");
-		startBtn.setPreferredSize(new Dimension(100, 50));
+		startBtn.setPreferredSize(new Dimension(90, 50));
 		exitBtn = new JButton("EXIT");
-		exitBtn.setPreferredSize(new Dimension(100, 50));
+		exitBtn.setPreferredSize(new Dimension(90, 50));
 		titleLabel = new JLabel("운빨좆망겜에 오신걸 환영합니다.");
 
 		mainPanel.add(titleLabel);
@@ -109,19 +113,34 @@ public class MainFrame extends JFrame {
 
 	public void stageComponent() {
 		stagePanel = new JPanel();
+		stagePanel.setLayout(new BorderLayout(0, 55));
+
+		stageDcPanel = new JPanel();
+		stageTextPanel = new JPanel();
+		stageBtnPanel = new JPanel();
+
 		yesBtn = new JButton("Yes");
-		yesBtn.setPreferredSize(new Dimension(100, 50));
+		yesBtn.setPreferredSize(new Dimension(90, 50));
 		noBtn = new JButton("No");
-		noBtn.setPreferredSize(new Dimension(100, 50));
+		noBtn.setPreferredSize(new Dimension(90, 50));
 		dcLabel = new JLabel("DeathCount");
 		dc2Label = new JLabel(" " + dc);
 		stage1Label = new JLabel("스테이지1의 문구를 집어 넣을 것.");
-		stagePanel.add(dcLabel);
-		stagePanel.add(dc2Label);
-		stagePanel.add(stage1Label);
-		stagePanel.add(yesBtn);
-		stagePanel.add(noBtn);
+
+		stageDcPanel.add(dcLabel);
+		stageDcPanel.add(dc2Label);
+
+		stageTextPanel.add(stage1Label);
+
+		stageBtnPanel.add(yesBtn);
+		stageBtnPanel.add(noBtn);
+
+		stagePanel.add(stageDcPanel, BorderLayout.NORTH);
+		stagePanel.add(stageTextPanel, BorderLayout.CENTER);
+		stagePanel.add(stageBtnPanel, BorderLayout.SOUTH);
+
 		add(stagePanel);
+
 	}
 
 	public void lastComponent() {

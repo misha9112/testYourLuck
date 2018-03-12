@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 public class MainFrame extends JFrame {
 	CardLayout cl;
-// 헐
+
 	JPanel mainPanel;
 	JPanel stagePanel;
 	JPanel lastPanel;
@@ -34,7 +34,7 @@ public class MainFrame extends JFrame {
 	String str;
 	LoadingResult result;
 
-	int dc = 0; 
+	int dc = 0;
 
 	public MainFrame() {
 		setTitle("Main Frame");
@@ -75,7 +75,7 @@ public class MainFrame extends JFrame {
 						dc++;
 						dc2Label.setText(String.valueOf(dc));
 						cl.show(getContentPane(), "mainPanel");
-					
+
 					} else {
 						// cl.next(getContentPane());
 					}

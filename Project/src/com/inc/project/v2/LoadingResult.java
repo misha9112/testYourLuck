@@ -18,7 +18,6 @@ public class LoadingResult extends JFrame {
 	JButton loadingBtn, liveBtn, dieBtn;
 	JPanel firstPanel, secondPanel, thirdPanel;
 	String str;
-	//MainFrame mf = new MainFrame();
 	public static boolean live;
 	
 
